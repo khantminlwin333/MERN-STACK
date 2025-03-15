@@ -1,0 +1,49 @@
+/* Limit description to 2 lines (adjust the line number as necessary) */
+.description {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; /* Number of lines you want to display */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5;
+    height: 3em; /* Adjust height for line clamping */
+  }
+
+  
+ /* Limit description to 2 lines */
+.description {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5;
+  max-height: 3em;
+}
+
+/* Show only first 3 ingredients, then add a "+ more" indicator */
+.ingredients span:nth-child(n+4) {
+  display: none; /* Hide ingredients beyond 3 */
+}
+
+/* Add a visible "+ more" indicator */
+.ingredients::after {
+  content: ' + more';
+  color: rgb(248, 146, 11);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+  
+  .ingredients span:nth-child(4)::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%; /* Cover half of the fourth item */
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    pointer-events: none; /* Allow clicks to pass through */
+  }
